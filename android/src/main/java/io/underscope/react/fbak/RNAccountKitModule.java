@@ -230,7 +230,7 @@ public class RNAccountKitModule extends ReactContextBaseJavaModule implements Ac
         if (readPhoneStateEnabled && PackageManager.PERMISSION_DENIED == ContextCompat.checkSelfPermission(
                         reactContext.getApplicationContext(), Manifest.permission.READ_PHONE_STATE)) {
             Log.w(REACT_CLASS, "To allow reading phone number add READ_PHONE_STATE permission in your app's manifest");
-            configurationBuilder.setReadPhoneStateEnabled(false);
+            configurationBuilder.setReadPhoneStateEnabled(true);
         } else {
             configurationBuilder.setReadPhoneStateEnabled(readPhoneStateEnabled);
         }
@@ -239,7 +239,7 @@ public class RNAccountKitModule extends ReactContextBaseJavaModule implements Ac
         if (receiveSMS && PackageManager.PERMISSION_DENIED == ContextCompat.checkSelfPermission(
                 reactContext.getApplicationContext(), Manifest.permission.RECEIVE_SMS)) {
             Log.w(REACT_CLASS, "To allow extracting code from SMS add RECEIVE_SMS permission in your app's manifest");
-            configurationBuilder.setReceiveSMS(false);
+            configurationBuilder.setReceiveSMS(true);
         } else {
             configurationBuilder.setReceiveSMS(receiveSMS);
         }
