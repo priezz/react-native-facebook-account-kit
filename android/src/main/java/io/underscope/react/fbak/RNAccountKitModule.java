@@ -220,8 +220,12 @@ public class RNAccountKitModule extends ReactContextBaseJavaModule implements Ac
         String initialPhoneCountryPrefix = this.options.getString("initialPhoneCountryPrefix");
         String initialPhoneNumber = this.options.getString("initialPhoneNumber");
 
-        PhoneNumber phoneNumber = new PhoneNumber(initialPhoneCountryPrefix, initialPhoneNumber, null);
-        configurationBuilder.setInitialPhoneNumber(phoneNumber);
+        if (initialPhoneCountryPrefix != null && !initialPhoneCountryPrefix.isEmpty()
+            && initialPhoneNumber != null && !initialPhoneNumber.isEmpty()
+        ) {
+            PhoneNumber phoneNumber = new PhoneNumber(initialPhoneCountryPrefix, initialPhoneNumber, null);
+            configurationBuilder.setInitialPhoneNumber(phoneNumber);
+        }
 
         configurationBuilder.setFacebookNotificationsEnabled(
                 this.options.getBoolean("facebookNotificationsEnabled"));
@@ -302,6 +306,6 @@ public class RNAccountKitModule extends ReactContextBaseJavaModule implements Ac
 
     //  Replace Turkish İ and ı with their normalized versions (I and i, respectively)
     private String safeString (String str) {
-      return str.replace("İ", "I").replace("ı", "i");
+        return str.replace("İ", "I").replace("ı", "i");
     }
 }
