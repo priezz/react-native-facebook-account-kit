@@ -212,55 +212,57 @@ public class RNAccountKitModule extends ReactContextBaseJavaModule implements Ac
             configurationBuilder.setInitialAuthState(initialAuthState);
         }
 
-        String initialEmail = this.options.getString("initialEmail");
-        if (initialEmail != null && !initialEmail.isEmpty()) {
-            configurationBuilder.setInitialEmail(initialEmail);
-        }
+        // String initialEmail = this.options.getString("initialEmail");
+        // if (initialEmail != null && !initialEmail.isEmpty()) {
+        //     configurationBuilder.setInitialEmail(initialEmail);
+        // }
 
-        String initialPhoneCountryPrefix = this.options.getString("initialPhoneCountryPrefix");
-        String initialPhoneNumber = this.options.getString("initialPhoneNumber");
+        // String initialPhoneCountryPrefix = this.options.getString("initialPhoneCountryPrefix");
+        // String initialPhoneNumber = this.options.getString("initialPhoneNumber");
 
-        if (initialPhoneCountryPrefix != null && !initialPhoneCountryPrefix.isEmpty()
-            && initialPhoneNumber != null && !initialPhoneNumber.isEmpty()
-        ) {
-            PhoneNumber phoneNumber = new PhoneNumber(initialPhoneCountryPrefix, initialPhoneNumber, null);
-            configurationBuilder.setInitialPhoneNumber(phoneNumber);
-        }
+        // if (initialPhoneCountryPrefix != null && !initialPhoneCountryPrefix.isEmpty()
+        //     && initialPhoneNumber != null && !initialPhoneNumber.isEmpty()
+        // ) {
+        //     PhoneNumber phoneNumber = new PhoneNumber(initialPhoneCountryPrefix, initialPhoneNumber, null);
+        //     configurationBuilder.setInitialPhoneNumber(phoneNumber);
+        // }
 
         configurationBuilder.setFacebookNotificationsEnabled(
                 this.options.getBoolean("facebookNotificationsEnabled"));
 
-        boolean readPhoneStateEnabled = this.options.getBoolean("readPhoneStateEnabled");
-        if (readPhoneStateEnabled && PackageManager.PERMISSION_DENIED == ContextCompat.checkSelfPermission(
-                        reactContext.getApplicationContext(), Manifest.permission.READ_PHONE_STATE)) {
-            Log.w(REACT_CLASS, "To allow reading phone number add READ_PHONE_STATE permission in your app's manifest");
-            configurationBuilder.setReadPhoneStateEnabled(true);
-        } else {
-            configurationBuilder.setReadPhoneStateEnabled(readPhoneStateEnabled);
-        }
+        // boolean readPhoneStateEnabled = this.options.getBoolean("readPhoneStateEnabled");
+        // if (readPhoneStateEnabled && PackageManager.PERMISSION_DENIED == ContextCompat.checkSelfPermission(
+        //                 reactContext.getApplicationContext(), Manifest.permission.READ_PHONE_STATE)) {
+        //     Log.w(REACT_CLASS, "To allow reading phone number add READ_PHONE_STATE permission in your app's manifest");
+        //     configurationBuilder.setReadPhoneStateEnabled(true);
+        // } else {
+        //     configurationBuilder.setReadPhoneStateEnabled(readPhoneStateEnabled);
+        // }
+        configurationBuilder.setReadPhoneStateEnabled(true);
 
-        boolean receiveSMS = this.options.getBoolean("receiveSMS");
-        if (receiveSMS && PackageManager.PERMISSION_DENIED == ContextCompat.checkSelfPermission(
-                reactContext.getApplicationContext(), Manifest.permission.RECEIVE_SMS)) {
-            Log.w(REACT_CLASS, "To allow extracting code from SMS add RECEIVE_SMS permission in your app's manifest");
-            configurationBuilder.setReceiveSMS(true);
-        } else {
-            configurationBuilder.setReceiveSMS(receiveSMS);
-        }
+        // boolean receiveSMS = this.options.getBoolean("receiveSMS");
+        // if (receiveSMS && PackageManager.PERMISSION_DENIED == ContextCompat.checkSelfPermission(
+        //         reactContext.getApplicationContext(), Manifest.permission.RECEIVE_SMS)) {
+        //     Log.w(REACT_CLASS, "To allow extracting code from SMS add RECEIVE_SMS permission in your app's manifest");
+        //     configurationBuilder.setReceiveSMS(true);
+        // } else {
+        //     configurationBuilder.setReceiveSMS(receiveSMS);
+        // }
+        configurationBuilder.setReceiveSMS(true);
 
-        if (this.options.hasKey("countryBlacklist")) {
-            String[] blacklist = formatCountryList(this.options.getArray("countryBlacklist"));
-            configurationBuilder.setSMSBlacklist(blacklist);
-        }
+        // if (this.options.hasKey("countryBlacklist")) {
+        //     String[] blacklist = formatCountryList(this.options.getArray("countryBlacklist"));
+        //     configurationBuilder.setSMSBlacklist(blacklist);
+        // }
 
-        if (this.options.hasKey("countryWhitelist")) {
-            String[] whitelist = formatCountryList(this.options.getArray("countryWhitelist"));
-            configurationBuilder.setSMSWhitelist(whitelist);
-        }
+        // if (this.options.hasKey("countryWhitelist")) {
+        //     String[] whitelist = formatCountryList(this.options.getArray("countryWhitelist"));
+        //     configurationBuilder.setSMSWhitelist(whitelist);
+        // }
 
-        if (this.options.hasKey("defaultCountry")) {
-            configurationBuilder.setDefaultCountryCode(this.options.getString("defaultCountry"));
-        }
+        // if (this.options.hasKey("defaultCountry")) {
+        //     configurationBuilder.setDefaultCountryCode(this.options.getString("defaultCountry"));
+        // }
 
         return configurationBuilder;
     }
