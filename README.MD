@@ -224,7 +224,7 @@ As per this [documentation](https://developers.facebook.com/docs/accountkit/acce
 ## Themes
 
 <details>
-    <summary>iOS</summary>  
+    <summary>iOS</summary>
 
 <br/>
 
@@ -367,7 +367,6 @@ RNAccountKit.configure({
   initialPhoneNumber: '123-456-7890',
   facebookNotificationsEnabled: true|false, // true by default
   readPhoneStateEnabled: true|false, // true by default,
-  receiveSMS: true|false, // true by default,
   countryWhitelist: ['AR'], // [] by default
   countryBlacklist: ['US'], // [] by default
   defaultCountry: 'AR',
@@ -381,7 +380,7 @@ Try the [examples](https://github.com/underscopeio/react-native-facebook-account
 They are related to different React Native versions.
 
 ```bash
-git clone https://github.com/underscopeio/react-native-facebook-account-kit
+git clone https://github.com/priezz/react-native-facebook-account-kit
 cd react-native-facebook-account-kit/examples/RN033 # or /RN024
 npm install
 react-native run-ios # or react-native run-android
@@ -407,7 +406,7 @@ If you have trouble running any example try the following:
 </details>
 
 <details>
-    <summary>"A system issue occured, Please try again" when sending SMS</summary>  
+    <summary>"A system issue occured, Please try again" when sending SMS</summary>
 <br/>
 
 A. Check your `FacebookAppID` and `AccountKitClientToken` on iOS `Info.plist` and Android `strings.xml` are correct

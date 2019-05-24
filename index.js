@@ -24,7 +24,6 @@ class RNAccountKit {
         initialPhoneNumber: '',
         facebookNotificationsEnabled: true,
         readPhoneStateEnabled: true,
-        receiveSMS: true,
         theme: {},
     }
 
