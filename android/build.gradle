@@ -16,6 +16,9 @@ android {
         // ndk {
         //     abiFilters "armeabi-v7a", "x86"
         // }
+
+        // Optional: Specify the language(s) your app supports.
+        resConfigs "en" // TODO: Load value from the parent project
     }
     lintOptions {
         abortOnError false
@@ -31,7 +34,7 @@ android {
 dependencies {
     implementation 'com.facebook.react:react-native:+'
     /// https://mvnrepository.com/artifact/com.facebook.android/account-kit-sdk
-    implementation 'com.facebook.android:account-kit-sdk:5.0.0';
+    implementation 'com.facebook.android:account-kit-sdk:5.+'
 //    implementation ('com.facebook.android:account-kit-sdk:5.0.0');
 //    {
 //        exclude group: 'com.parse.bolts', module: 'bolts-android';

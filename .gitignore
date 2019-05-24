@@ -44,3 +44,6 @@ jsconfig.json
 
 # Pods
 Pods/
+
+.settings
+.project

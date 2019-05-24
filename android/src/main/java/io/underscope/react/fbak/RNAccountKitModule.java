@@ -248,7 +248,7 @@ public class RNAccountKitModule extends ReactContextBaseJavaModule implements Ac
         // } else {
         //     configurationBuilder.setReceiveSMS(receiveSMS);
         // }
-        configurationBuilder.setReceiveSMS(true);
+        // configurationBuilder.setReceiveSMS(true); // Not available in version 5.+
 
         // if (this.options.hasKey("countryBlacklist")) {
         //     String[] blacklist = formatCountryList(this.options.getArray("countryBlacklist"));
