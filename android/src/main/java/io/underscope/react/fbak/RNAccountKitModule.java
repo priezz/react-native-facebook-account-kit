@@ -223,8 +223,10 @@ public class RNAccountKitModule extends ReactContextBaseJavaModule implements Ac
         String initialPhoneCountryPrefix = this.options.getString("initialPhoneCountryPrefix");
         String initialPhoneNumber = this.options.getString("initialPhoneNumber");
 
-        PhoneNumber phoneNumber = new PhoneNumber(initialPhoneCountryPrefix, initialPhoneNumber, null);
-        configurationBuilder.setInitialPhoneNumber(phoneNumber);
+        if(initialPhoneCountryPrefix != null || initialPhoneNumber != null) {
+            PhoneNumber phoneNumber = new PhoneNumber(initialPhoneCountryPrefix, initialPhoneNumber, null);
+            configurationBuilder.setInitialPhoneNumber(phoneNumber);
+        }
 
         configurationBuilder.setFacebookNotificationsEnabled(
                 this.options.getBoolean("facebookNotificationsEnabled"));
